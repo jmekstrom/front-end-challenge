@@ -13,8 +13,8 @@
 
 .cars-title{
 	margin-bottom: -32px;
-	@media screen and (max-width: 400px){
-	   	text-align: center !important;
+	@media screen and (max-width: 768px){
+	   	//text-align: center !important;
 	   	margin-bottom: 0;
    }
 }
@@ -127,12 +127,20 @@
    -webkit-justify-content: flex-end;
    justify-content: flex-end;
    margin-bottom: 2em;
-   @media screen and (max-width: 400px){
+   .custom-select{
+   	width: inherit;
+   }
+   @media screen and (max-width: 768px){
 	   	display: block;
 	   	text-align: center;
 	   	margin-top: 2em;
 	   	.form-inline{
 	   		display: block;
+	   	}
+	   	.custom-select,
+	   	.form-control{
+	   		width: 100%;
+	   		margin-bottom: .5em;
 	   	}
    }
 }

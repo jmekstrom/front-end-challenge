@@ -196,13 +196,13 @@ class Car_CardBoard extends Component {
         <div className="flexcontainer">
           <form className="form-inline">
             <label className="mr-sm-2 sr-only" htmlFor="inlineFormCustomSelect">Like/Dislike Filter</label>
-              <select className="custom-select like-filter mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" onChange={this.handleChange}>
+              <select className="custom-select like-filter mb-2 mr-sm-2" id="inlineFormCustomSelect" onChange={this.handleChange}>
                 <option defaultValue value="all">All Cars</option>
                 <option value="liked">Liked Cars</option>
                 <option value="disliked">Disliked Cars</option>
               </select>
             <label className="sr-only" htmlFor="searchInput">Name</label>
-            <input type="text" className="form-control mb-2 mb-sm-0" id="seachInput" placeholder="Search" onChange={this.filterList}></input>
+            <input type="text" className="form-control mb-2" id="seachInput" placeholder="Search" onChange={this.filterList}></input>
           </form>
         </div>
         <Car_CardList cards={this.state.cars} likeFilter={this.state.likeFilter} likeStatusRecord={this.likeStatusRecord} />
