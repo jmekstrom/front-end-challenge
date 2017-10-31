@@ -99,7 +99,6 @@ class Car_Card extends Component {
 const Car_CardList = (props) => {
 
   return (
-
     <div className="row text-center text-lg-left car-cards">
       {props.cards.map((card,index) => {
         if(card.likeStatus === props.likeFilter || props.likeFilter === 0){
@@ -121,6 +120,7 @@ class Car_CardBoard extends Component {
     super(props);
     this.state = {
       cars: [],
+      allcars: [],
       likeFilter: 0,
     }
     this.handleChange = this.handleChange.bind(this);
@@ -154,10 +154,23 @@ class Car_CardBoard extends Component {
     else{
       tempCars[key].likeStatus = 0
     }
-    this.setState(prevState => ({
-        cars: tempCars
-    }));
+    this.setState({cars: tempCars});
     //console.log(tempCars)
+  }
+  filterList = (event) => {
+    let updatedList = this.state.allcars;
+    if(event.target.value !== ''){
+      updatedList = updatedList.filter(function(item){
+        for(var key in item){
+          if(item[key] !== null){
+            if(item[key].toString().toLowerCase().search(event.target.value.toLowerCase()) !== -1){
+              return item;
+            }
+          }
+        }
+      });
+    }
+    this.setState({cars: updatedList});
   }
 
 
@@ -168,7 +181,8 @@ class Car_CardBoard extends Component {
         res.data[i].likeStatus = 0
       }
       this.setState({
-        cars: res.data
+        cars: res.data,
+        allcars: res.data
       })
     })
   }
@@ -187,8 +201,8 @@ class Car_CardBoard extends Component {
                 <option value="liked">Liked Cars</option>
                 <option value="disliked">Disliked Cars</option>
               </select>
-            {/*<label className="sr-only" htmlFor="searchInput">Name</label>
-            <input type="text" className="form-control mb-2 mb-sm-0" id="seachInput" placeholder="Search"></input>*/}
+            <label className="sr-only" htmlFor="searchInput">Name</label>
+            <input type="text" className="form-control mb-2 mb-sm-0" id="seachInput" placeholder="Search" onChange={this.filterList}></input>
           </form>
         </div>
         <Car_CardList cards={this.state.cars} likeFilter={this.state.likeFilter} likeStatusRecord={this.likeStatusRecord} />
