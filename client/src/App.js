@@ -124,6 +124,7 @@ class Car_CardBoard extends Component {
       likeFilter: 0,
     }
     this.handleChange = this.handleChange.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   //function called when the car filter is changed
@@ -173,6 +174,10 @@ class Car_CardBoard extends Component {
     this.setState({cars: updatedList});
   }
 
+  submit = (e) =>{
+    e.preventDefault();
+  }
+
 
   //get api feed and update state with response
   componentWillMount(){
@@ -194,7 +199,7 @@ class Car_CardBoard extends Component {
       <div className="container car-board">
       <h1 className="cars-title text-left">Sports Cars</h1>
         <div className="flexcontainer">
-          <form className="form-inline">
+          <form className="form-inline" onSubmit={this.submit}>
             <label className="mr-sm-2 sr-only" htmlFor="inlineFormCustomSelect">Like/Dislike Filter</label>
               <select className="custom-select like-filter mb-2 mr-sm-2" id="inlineFormCustomSelect" onChange={this.handleChange}>
                 <option defaultValue value="all">All Cars</option>
