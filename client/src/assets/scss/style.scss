@@ -1,0 +1,146 @@
+.container{
+	max-width: 1300px;
+	margin-top: 55px;
+	.dropdown{
+		margin-top: 10px;
+		height: 40px;
+	}
+}
+
+.car-cards{
+
+}
+
+.cars-title{
+	margin-bottom: -32px;
+	@media screen and (max-width: 768px){
+	   	//text-align: center !important;
+	   	margin-bottom: 0;
+   }
+}
+
+.car-card{
+	margin-bottom: 30px;
+	.img-thumbnail{
+		position: relative;
+	}
+	.like-status{
+		margin-top: 15px;
+		//z-index: 2;
+		.liked-icon-active,
+		.disliked-icon-active{
+			display: none;
+		}
+		img{
+			position: absolute;
+			bottom: 15px;
+			left: 17px;
+		}
+		.dislike{
+			img{
+				left: 70px;
+			}
+		}
+	}
+	&.liked{
+		.liked-icon-active{
+			display: inline;
+		}
+		.liked-icon{
+			display: none;
+		}
+	}
+	&.disliked{
+		.disliked-icon-active{
+			display: inline;
+			z-index: 2;
+		}
+		.disliked-icon{
+			display: none;
+		}
+		.img-thumbnail{
+			&:before{
+				content: '';
+				height: 100%;
+				width: 100%;
+				background-color: #fff;
+				opacity: .7;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+			}
+		}
+	}
+	.details{
+		padding: 15px 5px 20px;
+		text-align: left;
+		font-size: 14px;
+		h6{
+			margin-bottom: 5px;
+		}
+		.det-col{
+			>div{
+				display: block;
+				color: #777;
+			}
+			padding: 0 10px;
+			&.left{
+				padding-right: 0;
+				.like{
+				
+				}
+				.dislike{
+					margin-left: 55px;
+				}
+			}
+			&.right{
+				padding-left: 0;
+				text-align: right;
+				font-size: 12px;
+				.availability{
+					color: #00C851;
+					margin-bottom: 5px;
+				}
+				.MPG{
+					color: #bbb;
+				}
+			}
+		}
+	}
+	.img-thumbnail{
+		padding: 0;
+		background-color: #fafafa;
+		border: none;
+		box-shadow: 0 0 5px #ccc;
+		>img{
+			border-bottom: 1px solid #ddd;
+		}
+	}
+}
+
+.flexcontainer {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   flex-direction: row;
+   -webkit-justify-content: flex-end;
+   justify-content: flex-end;
+   margin-bottom: 2em;
+   .custom-select{
+   	width: inherit;
+   }
+   @media screen and (max-width: 768px){
+	   	display: block;
+	   	text-align: center;
+	   	margin-top: 2em;
+	   	.form-inline{
+	   		display: block;
+	   	}
+	   	.custom-select,
+	   	.form-control{
+	   		width: 100%;
+	   		margin-bottom: .5em;
+	   	}
+   }
+}
